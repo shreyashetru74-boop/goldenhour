@@ -1,0 +1,6 @@
+Paste this into the box:
+
+Dear Customer, Rs 24,999.00 debited from A/c XX7781 on 23-10-2026 13:30 to VPA fastpay.refund88@okaxis. UPI Ref No 512398765432. Not you? Report immediately. -SBI
+
+Then click "No SMS? Tell me what happened instead" and add:
+I didn't make this payment and never shared any OTP.

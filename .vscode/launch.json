@@ -1,0 +1,7 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    { "name": "Run GoldenHour", "type": "debugpy", "request": "launch",
+      "program": "${workspaceFolder}/goldenhour.py", "cwd": "${workspaceFolder}" }
+  ]
+}

@@ -1,0 +1,5 @@
+Paste this into the box (the agent will ask you one question):
+
+Rs 40,000.00 debited from A/c XX2207 on 23-10-2026 14:05 to VPA quickloan.help@ybl. UPI Ref No 908812345671. -Canara Bank
+
+Tip: change the date and time to a few minutes ago so the golden-hour clock is live.
