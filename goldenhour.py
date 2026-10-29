@@ -291,7 +291,11 @@ REASONING = {
 def classify(text_all):
     text = text_all.lower()
     hits = lambda cues: [c for c in cues if c in text]
-    unauth, self_paid, creds = hits(UNAUTH_CUES), hits(SELF_PAID_CUES), hits(CREDENTIAL_CUES)
+    unauth, self_paid = hits(UNAUTH_CUES), hits(SELF_PAID_CUES)
+    # "I never shared my OTP" must not count as sharing it
+    positive = re.sub(r"\b(never|didn't|did not|not|no|without)\s+(shar\w*|gave|give|giving|told|tell|install\w*)"
+                      r"(\s+(the|my|any|an|a))?\s+(otp|pin|app|anydesk|teamviewer)", " ", text)
+    creds = [c for c in CREDENTIAL_CUES if c in positive]
     if creds:
         authorization = "credential_compromise"
     elif unauth and not self_paid:
