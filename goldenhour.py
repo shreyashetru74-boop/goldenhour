@@ -1396,11 +1396,16 @@ def page():
     return PAGE
 
 
-if __name__ == "__main__":
-    import uvicorn
-    print("\n  GoldenHour is running -> http://127.0.0.1:8000")
-    print("  Mode:", f"Gemini ({GEMINI_MODEL})" if GEMINI_API_KEY else "offline rules engine (no GEMINI_API_KEY set)")
-    print("  Opening your browser... (keep this window open; press Ctrl+C to stop)\n")
-    import webbrowser
-    threading.Timer(1.5, lambda: webbrowser.open("http://127.0.0.1:8000")).start()
-    uvicorn.run(app, host="127.0.0.1", port=8000)
+  if __name__ == "__main__":
+      import uvicorn
+      mode = f"Gemini ({GEMINI_MODEL})" if GEMINI_API_KEY else "offline rules engine (no GEMINI_API_KEY set)"
+      if os.getenv("PORT"):
+          print(f"  GoldenHour online on port {os.getenv('PORT')}. Mode: {mode}")
+          uvicorn.run(app, host="0.0.0.0", port=int(os.getenv("PORT")))
+      else:
+          print("\n  GoldenHour is running -> http://127.0.0.1:8000")
+          print("  Mode:", mode)
+          print("  Opening your browser... (keep this window open; press Ctrl+C to stop)\n")
+          import webbrowser
+          threading.Timer(1.5, lambda: webbrowser.open("http://127.0.0.1:8000")).start()
+          uvicorn.run(app, host="127.0.0.1", port=8000)
